@@ -2237,6 +2237,7 @@ img {
     height: 110px;
   }
 }
+
 /* -------- MOBILE FIX FOR UAE MAP -------- */
 @media (max-width: 768px) {
   /* give the card a consistent shape on phones */
@@ -2247,8 +2248,22 @@ img {
 
   /* slightly smaller labels so they don’t overlap */
   .uae-map-dot {
-    font-size: 0.65rem;
+    font-size: 0.6rem;   /* smaller label text on map */
     gap: 0.25rem;
+  }
+
+  /* if you want the list on the right side smaller too */
+  .uae-coverage-list .uae-list {
+    font-size: 0.85rem;
+  }
+
+  /* and slightly smaller heading + paragraph above map */
+  .uae-coverage-title {
+    font-size: 1.25rem;
+  }
+
+  .uae-coverage-text {
+    font-size: 0.85rem;
   }
 
   /* re-position dots specifically for mobile */
@@ -2273,12 +2288,12 @@ img {
   }
 
   .uae-map-dot--rak {
-    left: 75%;
+    left: 72%;
     top: 12%;
   }
 
   .uae-map-dot--fujairah {
-    left: 76%;
+    left: 75%;
     top: 30%;
   }
 
