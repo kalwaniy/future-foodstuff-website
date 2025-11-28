@@ -124,16 +124,7 @@ export default function Home() {
                 </Link>
               </div>
 
-              <div className="hero-badges-row">
-                <span className="hero-badges-label">
-                  Partnering with brands like
-                </span>
-                {brandLogos.map((name) => (
-                  <span key={name} className="hero-badge-pill">
-                    {name}
-                  </span>
-                ))}
-              </div>
+              
             </div>
 
             {/* Right “cards” */}
