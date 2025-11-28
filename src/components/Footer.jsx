@@ -68,7 +68,7 @@ export default function Footer() {
             © {new Date().getFullYear()} Future Foodstuff Trading Company LLC.
             All rights reserved.
           </span>
-          <span>Website redesign by Yash.</span>
+          <span>Website redesigned by Yash.</span>
         </div>
       </div>
     </footer>

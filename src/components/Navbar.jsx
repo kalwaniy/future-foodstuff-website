@@ -50,9 +50,7 @@ export default function Navbar() {
               </NavLink>
             ))}
 
-            <button className="navbar-icon-btn">
-              <HiSearch size={18} color="#6b7280" />
-            </button>
+         
 
             <Link to="/contact" className="btn btn-primary">
               Get in touch

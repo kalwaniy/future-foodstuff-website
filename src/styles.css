@@ -432,8 +432,8 @@ img {
 }
 
 .hero-mini-card--orange {
-  background: var(--accent);
-  color: #fff7ed;
+  background: #f97316;
+  color: #ffffff;
 }
 
 .hero-mini-title {
@@ -1378,23 +1378,46 @@ img {
     transform: translateY(0);
   }
 }
-
-/* Responsive */
-
 @media (max-width: 992px) {
   .coffee-media-shell {
     margin-bottom: 3rem;
   }
 
+  /* 2×2 layout:
+     row 1: video (spans both)
+     row 2: left + right machines */
   .coffee-media-strip {
-    grid-template-columns: minmax(0, 1fr);
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: auto auto;
+    grid-template-areas:
+      "video video"
+      "left  right";
     row-gap: 1.5rem;
-    text-align: center;
+    column-gap: 1rem;
+    max-width: 720px;
+    margin: 0 auto;
+    justify-items: center;   /* center items inside each column */
+    align-items: center;
+  }
+
+  /* Assign areas */
+  .coffee-media-side-wrapper {
+    grid-area: left;
+    display: flex;
+    justify-content: center;
+  }
+
+  .coffee-media-side-right {
+    grid-area: right;
+    display: flex;
+    justify-content: center;
   }
 
   .coffee-media-center {
-    order: -1;
-    max-height: 280px;
+    grid-area: video;
+    max-height: 260px;
+    width: 100%;
   }
 
   .coffee-media-side-card {
@@ -1405,6 +1428,7 @@ img {
     max-width: 110px;
   }
 }
+
 
 @media (max-width: 640px) {
   .coffee-media-shell {
@@ -1871,4 +1895,350 @@ img {
   font-size: 0.8rem;
   color: var(--brand-dark);
   margin-top: 1px;
+}
+
+
+/* ========== WHATSAPP FLOAT BUTTON ========== */
+
+.wa-float {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 60;
+  text-decoration: none;
+}
+
+.wa-float-inner {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 0.9rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #059669, #10b981);
+  box-shadow: 0 18px 40px rgba(16, 185, 129, 0.45);
+  color: #ecfdf5;
+  cursor: pointer;
+  transform: translateY(0);
+  transition: transform 0.18s ease, box-shadow 0.18s ease,
+    background 0.3s ease;
+}
+
+.wa-float-inner:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 22px 48px rgba(16, 185, 129, 0.6);
+}
+
+.wa-float-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  background: #ecfdf5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wa-float-icon-svg {
+  width: 18px;
+  height: 18px;
+  fill: #10b981;
+}
+
+.wa-float-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.wa-float-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  opacity: 0.9;
+}
+
+.wa-float-number {
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* slightly smaller on very small screens */
+@media (max-width: 480px) {
+  .wa-float-inner {
+    padding: 0.5rem 0.7rem;
+  }
+  .wa-float-number {
+    font-size: 0.75rem;
+  }
+}
+
+
+/* ========== UAE COVERAGE MAP BLOCK ========== */
+
+.uae-coverage {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .uae-coverage {
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+  }
+}
+
+.uae-coverage-kicker {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--brand-primary);
+  font-weight: 600;
+  margin: 0 0 0.4rem;
+}
+
+.uae-coverage-title {
+  margin: 0 0 0.4rem;
+  font-family: "Poppins", system-ui, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.uae-coverage-text {
+  margin: 0 0 1.2rem;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  max-width: 26rem;
+}
+
+/* dark card that acts as the “map” */
+
+.uae-map-card {
+  position: relative;
+  height: 360px;
+  border-radius: 1.5rem;
+  /* make the card background same as the section */
+  background: var(--bg-cream); 
+  overflow: hidden;
+  box-shadow: none;
+  isolation: isolate;
+}
+
+.uae-map-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 1rem;
+
+  /* this makes white become the card background color,
+     while keeping the black map */
+  mix-blend-mode: multiply;
+  /* optional: make the map a bit darker */
+  filter: contrast(1.2);
+}
+
+
+/* subtle oval glow over the map */
+.uae-map-card::after {
+  content: "";
+  display: none;
+}
+/* dots + labels */
+
+.uae-map-dot {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  color: #e5e7eb;
+  z-index: 2;
+  white-space: nowrap;
+}
+.uae-map-dot::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: #22c55e;
+  box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+  animation: uae-pulse 2.1s ease-out infinite;
+}
+/* positions (approximate) */
+.uae-map-dot--abudhabi {
+  left: 45%;
+  top: 60%;
+}
+
+.uae-map-dot--alain {
+  left: 73%;
+  top: 52%;      
+}
+
+.uae-map-dot--dubai {
+  left: 60%;
+  bottom: 55%;
+}
+
+.uae-map-dot--sharjah {
+  left: 65%;
+  bottom: 65%;
+}
+
+.uae-map-dot--rak {
+  left: 78%;
+  top: 12%;
+}
+.uae-map-dot--fujairah {
+  left: 79%;
+  top: 30%;
+}
+
+.uae-map-dot--uaq {
+  left: 70%;
+  top: 20%;
+}
+
+.uae-map-dot--ajman {
+  left: 68%;
+  top: 25%;
+}
+
+
+
+@keyframes uae-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+    transform: scale(1);
+  }
+  70% {
+    box-shadow: 0 0 0 12px rgba(34, 197, 94, 0);
+    transform: scale(1.08);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+    transform: scale(1);
+  }
+}
+
+.uae-coverage-list .uae-list {
+  margin: 0;
+  padding-left: 1.2rem;
+  font-size: 0.9rem;
+  color: var(--text-main);
+  line-height: 1.7;
+}
+
+
+/* ========== SCROLL REVEAL ANIMATIONS ========== */
+
+.sr-init {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.6s ease-out,
+    transform 0.6s ease-out,
+    box-shadow 0.6s ease-out;
+  will-change: opacity, transform;
+}
+
+.sr-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* variant: subtle glow for cards */
+[data-animate="glow-card"].sr-init {
+  transform: translateY(10px) scale(0.98);
+}
+
+[data-animate="glow-card"].sr-visible {
+  transform: translateY(0) scale(1);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.16);
+}
+
+/* slide in left/right if you want later */
+[data-animate="slide-left"].sr-init {
+  transform: translateX(24px);
+}
+
+[data-animate="slide-right"].sr-init {
+  transform: translateX(-24px);
+}
+
+
+
+.uae-map-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.28;              /* faint */
+  mix-blend-mode: screen;     /* blends with the dark gradient */
+  pointer-events: none;       /* click-through */
+  z-index: 1;
+}
+
+.uae-map-dot {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  color: #088d99;
+  z-index: 2;                 /* stay above the map image */
+}
+/* ================== PRODUCT MARQUEE (COFFEE SOLUTIONS) ================== */
+
+.product-marquee {
+  overflow: hidden;
+  width: 100%;
+  border-radius: 20px;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  background: #ffffff;
+  padding: 1.2rem 0;
+}
+
+.product-marquee-track {
+  display: flex;
+  gap: 2rem;
+  width: max-content;
+  animation: product-scroll 25s linear infinite;
+  padding-left: 1.5rem;
+}
+
+.product-marquee-item {
+  width: 220px;              /* big images */
+  height: 150px;
+  border-radius: 18px;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0 16px 35px rgba(15, 23, 42, 0.15);
+  background: #f1f5f9;
+}
+
+.product-marquee-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .4s ease;
+}
+
+.product-marquee-item:hover img {
+  transform: scale(1.08);
+}
+
+@keyframes product-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Mobile tweak */
+@media (max-width: 600px) {
+  .product-marquee-item {
+    width: 160px;
+    height: 110px;
+  }
 }

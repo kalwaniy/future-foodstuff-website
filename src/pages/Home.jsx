@@ -12,6 +12,8 @@ import logoReckitt from "../assets/10.png";
 import logoNestle from "../assets/12.png";
 import logoPepsi from "../assets/7.png";
 import logoEkaterra from "../assets/11.png";
+import uaeMap from "../assets/112.png";
+
 
 const stats = [
   { label: "B2B Customers", value: "350+" },
@@ -197,6 +199,77 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+     {/* UAE COVERAGE MAP */}
+<section className="section section--cream" data-animate="fade-up">
+  <div className="container">
+    <div className="uae-coverage">
+      <div className="uae-coverage-map">
+        <p className="uae-coverage-kicker">Nationwide coverage</p>
+        <h2 className="uae-coverage-title">
+          Delivering across key Emirates in the UAE
+        </h2>
+        <p className="uae-coverage-text">
+          Our fleet services major commercial hubs daily – ensuring on-time
+          deliveries to hotels, retailers and offices.
+        </p>
+
+     <div className="uae-map-card">
+  <img
+    src={uaeMap}
+    alt="UAE coverage map"
+    className="uae-map-img"
+  />
+
+  <div className="uae-map-dot uae-map-dot--abudhabi">
+    <span>Abu Dhabi</span>
+  </div>
+  <div className="uae-map-dot uae-map-dot--alain">
+    <span>Al Ain</span>
+  </div>
+  <div className="uae-map-dot uae-map-dot--dubai">
+    <span>Dubai</span>
+  </div>
+  <div className="uae-map-dot uae-map-dot--sharjah">
+    <span>Sharjah</span>
+  </div>
+  <div className="uae-map-dot uae-map-dot--rak">
+    <span>RAK</span>
+  </div>
+  <div className="uae-map-dot uae-map-dot--fujairah">
+    <span>Fujairah</span>
+  </div>
+  <div className="uae-map-dot uae-map-dot--uaq">
+    <span>UAQ</span>
+  </div>
+  <div className="uae-map-dot uae-map-dot--ajman">
+    <span>Ajman</span>
+  </div>
+</div>
+
+      </div>
+
+      <div className="uae-coverage-list">
+        <h3 className="hero-mini-title">Where we deliver</h3>
+        <ul className="uae-list">
+          <li>🟢 Abu Dhabi &amp; Mussafah industrial area</li>
+          <li>🟢 Dubai &amp; surrounding free zones</li>
+          <li>🟢 Sharjah &amp; Northern Emirates</li>
+          <li>🟢 Al Ain &amp; nearby institutions</li>
+          <li>🟢 Ras Al Khaimah (RAK)</li>
+          <li>🟢 Fujairah </li>
+          <li>🟢 Ajman </li>
+          <li>🟢 Umm Al Quwain (UAQ)</li>
+        </ul>
+        <p className="hero-mini-text" style={{ marginTop: "0.6rem" }}>
+          Need delivery to another emirate? <strong>Talk to our team</strong> and
+          we&apos;ll confirm routes and lead times.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
 
       {/* WHAT WE DO / SECTORS */}
       <section className="section section--cream">

@@ -114,7 +114,7 @@ export default function Contact() {
             <div className="contact-info-block">
               <p className="contact-info-label">Phone</p>
               <a href="tel:+971524045727" className="contact-info-link">
-                +971 52 404 5727
+                +971 56 603 7687
               </a>
             </div>
 

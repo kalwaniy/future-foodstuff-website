@@ -3,6 +3,8 @@ import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer.jsx";
 import Loader from "./components/Loader.jsx";
+import ScrollReveal from "./components/ScrollReveal.jsx";
+
 
 // pages
 import Home from "./pages/Home.jsx";
@@ -12,6 +14,8 @@ import Sectors from "./pages/Sectors.jsx";
 import BrandsProducts from "./pages/BrandsProducts.jsx";
 import CoffeeSolutions from "./pages/CoffeeSolutions.jsx";
 import Contact from "./pages/Contact.jsx";
+
+import WhatsAppFloat from "./components/WhatsappFloat.jsx";
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -28,6 +32,7 @@ export default function App() {
 
   return (
     <div className="page">
+      <ScrollReveal />
       <Navbar />
       <main className="page-main">
         <Routes>
@@ -41,6 +46,7 @@ export default function App() {
         </Routes>
       </main>
       <Footer />
+       <WhatsAppFloat />
     </div>
   );
 }
