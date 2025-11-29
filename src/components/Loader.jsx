@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import logo66 from "../assets/66.jpg"; // 👈 add this
 
 const CustomStyles = () => (
   <style>{`
@@ -50,9 +51,9 @@ const CustomStyles = () => (
       margin-bottom: 2rem;
     }
 
-    /* Road */
+    /* Road – slightly wider for bigger truck */
     .loader-road {
-      width: 380px;
+      width: 420px;
       height: 6px;
       background: repeating-linear-gradient(
         90deg,
@@ -66,11 +67,11 @@ const CustomStyles = () => (
       animation: road-move 0.8s linear infinite;
     }
 
-    /* Truck */
+    /* Truck – made a bit bigger */
     .loader-truck {
       position: relative;
-      width: 320px;
-      height: 100px;
+      width: 380px;   /* was 320px */
+      height: 115px;  /* was 100px */
       margin: 0 auto;
       animation: drive 2s ease-in-out infinite alternate;
     }
@@ -79,8 +80,8 @@ const CustomStyles = () => (
       position: absolute;
       right: 0;
       top: 15px;
-      width: 240px;
-      height: 70px;
+      width: 280px;   /* was 240px */
+      height: 80px;   /* was 70px */
       background: #475569;
       border-radius: 8px;
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
@@ -92,29 +93,32 @@ const CustomStyles = () => (
       overflow: hidden;
     }
 
+    /* ====== LOGO AREA ON TRAILER ====== */
     .loader-logo-area {
       width: 100%;
       height: 100%;
-      background: #f97316; /* bright orange */
-      margin: 5px;
+      background: #ffffff;
+      margin: 6px;
       border-radius: 4px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
-      font-size: 1.4rem;
-      font-weight: 900;
-      letter-spacing: 0.2em;
-      color: #0f172a;
-      text-shadow: 1px 1px 0 rgba(255,255,255,0.08);
+      padding: 6px;
+    }
+
+    .loader-logo-img {
+      max-width: 90%;
+      max-height: 90%;
+      object-fit: contain;
+      display: block;
     }
 
     .loader-cab {
       position: absolute;
       left: 10px;
-      top: 15px;
-      width: 80px;
-      height: 70px;
+      top: 18px;
+      width: 95px;    /* was 80px */
+      height: 80px;   /* was 70px */
       background: #475569;
       border-radius: 10px 20px 0 10px;
       box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
@@ -125,10 +129,10 @@ const CustomStyles = () => (
 
     .loader-window {
       position: absolute;
-      top: 5px;
-      left: 20px;
-      width: 40px;
-      height: 35px;
+      top: 6px;
+      left: 24px;
+      width: 46px;
+      height: 38px;
       background: #e0f2f7;
       border-radius: 4px;
       z-index: 25;
@@ -138,21 +142,22 @@ const CustomStyles = () => (
 
     .loader-lights {
       position: absolute;
-      bottom: 5px;
-      left: 5px;
-      width: 8px;
-      height: 8px;
+      bottom: 6px;
+      left: 6px;
+      width: 9px;
+      height: 9px;
       background: #fde047;
       border-radius: 50%;
       box-shadow: 0 0 8px 1px #fde047;
       z-index: 30;
     }
 
+    /* Wheels – slightly larger & repositioned */
     .loader-wheel {
       position: absolute;
-      bottom: -15px;
-      width: 40px;
-      height: 40px;
+      bottom: -18px;         /* was -15px */
+      width: 46px;           /* was 40px */
+      height: 46px;          /* was 40px */
       border-radius: 50%;
       background: #1e293b;
       border: 4px solid #cbd5e1;
@@ -161,17 +166,17 @@ const CustomStyles = () => (
       z-index: 30;
     }
 
-    .loader-wheel-cab       { left: 30px; }
-    .loader-wheel-trailer-1 { right: 120px; }
-    .loader-wheel-trailer-2 { right: 65px; }
-    .loader-wheel-trailer-3 { right: 10px; }
+    .loader-wheel-cab       { left: 36px; }
+    .loader-wheel-trailer-1 { right: 150px; }
+    .loader-wheel-trailer-2 { right: 90px; }
+    .loader-wheel-trailer-3 { right: 30px; }
 
     .loader-connection {
       position: absolute;
-      left: 80px;
-      top: 50px;
-      width: 15px;
-      height: 10px;
+      left: 90px;
+      top: 55px;
+      width: 18px;
+      height: 12px;
       background: #334155;
       z-index: 15;
     }
@@ -215,7 +220,7 @@ const CustomStyles = () => (
 );
 
 export default function TruckLoader() {
-  const [loadingText, setLoadingText] = useState("PREPARING YOUR DELIVERY...");
+  const [loadingText, setLoadingText] = useState("Loading your experience...");
 
   useEffect(() => {
     const messages = [
@@ -251,7 +256,13 @@ export default function TruckLoader() {
 
             {/* Trailer */}
             <div className="loader-trailer">
-              <div className="loader-logo-area">FFSTC</div>
+              <div className="loader-logo-area">
+                <img
+                  src={logo66}
+                  alt="Future Foodstuff Trading Co. LLC logo"
+                  className="loader-logo-img"
+                />
+              </div>
             </div>
 
             {/* Wheels */}
@@ -269,7 +280,12 @@ export default function TruckLoader() {
         <p className="loader-text">{loadingText}</p>
 
         {/* Progress bar */}
-        <div className="loader-progress" role="progressbar" aria-valuemin={0} aria-valuemax={100}>
+        <div
+          className="loader-progress"
+          role="progressbar"
+          aria-valuemin={0}
+          aria-valuemax={100}
+        >
           <div className="loader-progress-bar" />
         </div>
       </div>

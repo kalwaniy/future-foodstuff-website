@@ -243,14 +243,14 @@ export default function Home() {
       <div className="uae-coverage-list">
         <h3 className="hero-mini-title">Where we deliver</h3>
         <ul className="uae-list">
-          <li>🟢 Abu Dhabi &amp; Mussafah industrial area</li>
-          <li>🟢 Dubai &amp; surrounding free zones</li>
-          <li>🟢 Sharjah &amp; Northern Emirates</li>
-          <li>🟢 Al Ain &amp; nearby institutions</li>
-          <li>🟢 Ras Al Khaimah (RAK)</li>
-          <li>🟢 Fujairah </li>
-          <li>🟢 Ajman </li>
-          <li>🟢 Umm Al Quwain (UAQ)</li>
+          <li> Abu Dhabi &amp; Mussafah industrial area</li>
+          <li> Dubai &amp; surrounding free zones</li>
+          <li> Sharjah &amp; Northern Emirates</li>
+          <li> Al Ain &amp; nearby institutions</li>
+          <li> Ras Al Khaimah (RAK)</li>
+          <li> Fujairah </li>
+          <li> Ajman </li>
+          <li> Umm Al Quwain (UAQ)</li>
         </ul>
         <p className="hero-mini-text" style={{ marginTop: "0.6rem" }}>
           Need delivery to another emirate? <strong>Talk to our team</strong> and
